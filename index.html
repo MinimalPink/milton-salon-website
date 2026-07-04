@@ -168,11 +168,26 @@ blockquote{font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;
 
 /* ===== GALLERY ===== */
 .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:170px;gap:12px;}
-.gal-grid a{grid-column:span 1;grid-row:span 1;border-radius:14px;overflow:hidden;position:relative;}
-.gal-grid a img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
-.gal-grid a:hover img{transform:scale(1.07);}
-.gal-grid a.big{grid-column:span 2;grid-row:span 2;}
-@media(max-width:800px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}.gal-grid a.big{grid-column:span 2;grid-row:span 1;height:100%;}}
+.gal-grid button{grid-column:span 1;grid-row:span 1;border-radius:14px;overflow:hidden;position:relative;border:none;padding:0;margin:0;cursor:pointer;background:none;display:block;}
+.gal-grid button img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+.gal-grid button:hover img{transform:scale(1.07);}
+.gal-grid button.big{grid-column:span 2;grid-row:span 2;}
+@media(max-width:800px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}.gal-grid button.big{grid-column:span 2;grid-row:span 1;height:100%;}}
+
+/* ===== LIGHTBOX ===== */
+#lightbox{position:fixed;inset:0;z-index:300;background:rgba(6,6,7,0.96);display:none;align-items:center;justify-content:center;backdrop-filter:blur(6px);}
+#lightbox.open{display:flex;}
+#lightbox figure{margin:0;max-width:min(1100px,90vw);max-height:82vh;display:flex;flex-direction:column;align-items:center;gap:14px;}
+#lightbox img{max-width:100%;max-height:82vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px -20px rgba(0,0,0,0.8);}
+#lightbox figcaption{color:var(--muted);font-size:13.5px;text-align:center;}
+.lb-close{position:absolute;top:22px;right:24px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#fff;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-close:hover{background:rgba(255,255,255,0.14);}
+.lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.06);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.lb-nav:hover{background:rgba(255,255,255,0.14);}
+.lb-prev{left:20px;}
+.lb-next{right:20px;}
+.lb-counter{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:var(--muted);font-size:13px;letter-spacing:.05em;}
+@media(max-width:700px){.lb-nav{width:42px;height:42px;font-size:20px;}.lb-prev{left:8px;}.lb-next{right:8px;}.lb-close{top:12px;right:12px;width:38px;height:38px;}}
 
 /* ===== TEAM ===== */
 .team-wrap{display:grid;grid-template-columns:1fr 1.3fr;gap:56px;align-items:center;}
@@ -466,15 +481,15 @@ footer{padding:64px 0 32px;}
       <h2>Take a look around</h2>
     </div>
     <div class="gal-grid reveal">
-      <a class="big" href="assets/team-chairs-group.jpg" target="_blank"><img src="assets/team-chairs-group.jpg" alt="The Milton Salon barber team with clients in the chair" loading="lazy"></a>
-      <a href="assets/clipper-cut.jpg" target="_blank"><img src="assets/clipper-cut.jpg" alt="Barber giving a precision clipper cut at Milton Salon" loading="lazy"></a>
-      <a href="assets/fade-closeup.jpg" target="_blank"><img src="assets/fade-closeup.jpg" alt="Close-up of a sharp skin fade at Milton Salon" loading="lazy"></a>
-      <a href="assets/barber-chairs-row.jpg" target="_blank"><img src="assets/barber-chairs-row.jpg" alt="Row of barber chairs at Milton Salon and Barber Shop" loading="lazy"></a>
-      <a href="assets/piano-memorabilia.jpg" target="_blank"><img src="assets/piano-memorabilia.jpg" alt="Milton Salon's signature red piano and memorabilia wall" loading="lazy"></a>
-      <a href="assets/facial-treatment.jpg" target="_blank"><img src="assets/facial-treatment.jpg" alt="Hot towel facial treatment at Milton Salon" loading="lazy"></a>
-      <a href="assets/products-display.jpg" target="_blank"><img src="assets/products-display.jpg" alt="Premium grooming products on display at Milton Salon" loading="lazy"></a>
-      <a href="assets/team-photo.jpg" target="_blank"><img src="assets/team-photo.jpg" alt="Milton Salon team portrait with Gus" loading="lazy"></a>
-      <a href="assets/service-shave.jpg" target="_blank"><img src="assets/service-shave.jpg" alt="Hot shave close-up at Milton Salon" loading="lazy"></a>
+      <button type="button" class="big" data-idx="0"><img src="assets/team-chairs-group.jpg" alt="The Milton Salon barber team with clients in the chair" loading="lazy"></button>
+      <button type="button" data-idx="1"><img src="assets/clipper-cut.jpg" alt="Barber giving a precision clipper cut at Milton Salon" loading="lazy"></button>
+      <button type="button" data-idx="2"><img src="assets/fade-closeup.jpg" alt="Close-up of a sharp skin fade at Milton Salon" loading="lazy"></button>
+      <button type="button" data-idx="3"><img src="assets/barber-chairs-row.jpg" alt="Row of barber chairs at Milton Salon and Barber Shop" loading="lazy"></button>
+      <button type="button" data-idx="4"><img src="assets/piano-memorabilia.jpg" alt="Milton Salon's signature red piano and memorabilia wall" loading="lazy"></button>
+      <button type="button" data-idx="5"><img src="assets/facial-treatment.jpg" alt="Hot towel facial treatment at Milton Salon" loading="lazy"></button>
+      <button type="button" data-idx="6"><img src="assets/products-display.jpg" alt="Premium grooming products on display at Milton Salon" loading="lazy"></button>
+      <button type="button" data-idx="7"><img src="assets/team-photo.jpg" alt="Milton Salon team portrait with Gus" loading="lazy"></button>
+      <button type="button" data-idx="8"><img src="assets/service-shave.jpg" alt="Hot shave close-up at Milton Salon" loading="lazy"></button>
     </div>
   </div>
 </section>
@@ -650,6 +665,17 @@ footer{padding:64px 0 32px;}
   <a class="btn btn-gold" href="https://www.fresha.com/a/milton-salon-and-barbershop-alpharetta-3710-old-milton-parkway-4yet0nyh" target="_blank" rel="noopener" style="padding:14px;">Book Now</a>
 </div>
 
+<div id="lightbox">
+  <button type="button" class="lb-close" aria-label="Close">&times;</button>
+  <button type="button" class="lb-nav lb-prev" aria-label="Previous photo">&#8249;</button>
+  <figure>
+    <img id="lb-img" src="" alt="">
+    <figcaption id="lb-caption"></figcaption>
+  </figure>
+  <button type="button" class="lb-nav lb-next" aria-label="Next photo">&#8250;</button>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
 function closeMob(){document.getElementById('mnav').classList.remove('open');}
@@ -669,6 +695,61 @@ var io = new IntersectionObserver(function(entries){
   entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
 }, {threshold:0.12});
 document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+// Gallery lightbox
+(function(){
+  var items = Array.from(document.querySelectorAll('.gal-grid button')).map(function(btn){
+    var img = btn.querySelector('img');
+    return { src: img.src, alt: img.alt };
+  });
+  var lightbox = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lb-img');
+  var lbCaption = document.getElementById('lb-caption');
+  var lbCounter = document.getElementById('lb-counter');
+  var current = 0;
+
+  function show(idx){
+    current = (idx + items.length) % items.length;
+    var item = items[current];
+    lbImg.src = item.src;
+    lbImg.alt = item.alt;
+    lbCaption.textContent = item.alt;
+    lbCounter.textContent = (current + 1) + ' / ' + items.length;
+  }
+  function open(idx){
+    show(idx);
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close(){
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.gal-grid button').forEach(function(btn, idx){
+    btn.addEventListener('click', function(){ open(idx); });
+  });
+  document.querySelector('.lb-close').addEventListener('click', close);
+  document.querySelector('.lb-prev').addEventListener('click', function(){ show(current - 1); });
+  document.querySelector('.lb-next').addEventListener('click', function(){ show(current + 1); });
+  lightbox.addEventListener('click', function(e){ if(e.target === lightbox){ close(); } });
+  document.addEventListener('keydown', function(e){
+    if(!lightbox.classList.contains('open')) return;
+    if(e.key === 'Escape') close();
+    if(e.key === 'ArrowLeft') show(current - 1);
+    if(e.key === 'ArrowRight') show(current + 1);
+  });
+
+  // swipe support
+  var touchStartX = null;
+  lightbox.addEventListener('touchstart', function(e){ touchStartX = e.changedTouches[0].clientX; });
+  lightbox.addEventListener('touchend', function(e){
+    if(touchStartX === null) return;
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    if(Math.abs(dx) > 40){ dx > 0 ? show(current - 1) : show(current + 1); }
+    touchStartX = null;
+  });
+})();
 </script>
 </body>
 </html>
