@@ -12,7 +12,7 @@
 <meta property="og:description" content="Fades, hot shaves &amp; beard line-ups. 4.7★ rated, 900+ reviews. Open 7 days a week. Walk-ins welcome.">
 <meta property="og:image" content="https://miltonsalon.com/assets/hero-barbershop.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💈</text></svg>">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2222%22 fill=%22%230a0a0b%22/><text x=%2250%22 y=%2267%22 font-family=%22Georgia,%20%27Times%20New%20Roman%27,%20serif%22 font-size=%2250%22 font-weight=%22700%22 fill=%22%23e58b40%22 text-anchor=%22middle%22>MS</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -213,8 +213,13 @@ blockquote{font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;
 
 /* ===== REVIEWS ===== */
 .review-wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
-@media(max-width:920px){.review-wrap{grid-template-columns:1fr;}}
+@media(max-width:920px){.review-wrap{grid-template-columns:1fr;}.gbp-card{order:2;}.rev-quotes{order:1;}}
 .gbp-card{background:var(--panel);border:1px solid var(--border);border-radius:20px;padding:32px;}
+.platform-ratings{display:flex;justify-content:center;margin-top:40px;border-top:1px solid var(--border);padding-top:28px;}
+.platform-ratings>div{flex:1;max-width:200px;text-align:center;border-right:1px solid var(--border);}
+.platform-ratings>div:last-child{border-right:none;}
+.pr-label{display:block;font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-bottom:6px;}
+.pr-val{display:block;font-family:var(--serif);font-size:20px;font-weight:600;color:#fff;}
 .gbp-top{display:flex;align-items:center;gap:10px;margin-bottom:18px;}
 .gbp-tag{font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-bright);background:var(--gold-dim);padding:5px 12px;border-radius:100px;}
 .gbp-name{font-family:var(--serif);font-size:23px;color:#fff;margin-bottom:6px;}
@@ -553,7 +558,7 @@ footer{padding:64px 0 32px;}
     <div class="section-head reveal">
       <div class="pill">Reviews</div>
       <h2>Real clients, real results</h2>
-      <p>Rated 4.7 out of 5 across 900+ reviews on Google, Yelp and Fresha.</p>
+      <p>Rated 4.7–5.0 across Google, Fresha, Facebook and ClassPass.</p>
     </div>
     <div class="review-wrap reveal">
       <div class="gbp-card">
@@ -576,6 +581,11 @@ footer{padding:64px 0 32px;}
         <div class="rq"><span class="stars">★★★★★</span><p>"What an amazing place and service! Gus took care of my haircut while also being a great person to chat with. Five stars and will be coming here again..."</p><span class="rq-by">— T.S., Local Guide</span></div>
         <div class="rq"><span class="stars">★★★★★</span><p>"If you're looking for a new spot, go see Abed. I've been coming to him for a while now and he's easily one of the best in the business. He's great with the clippers and never rushes the cut..."</p><span class="rq-by">— Sehj Singh</span></div>
       </div>
+    </div>
+    <div class="platform-ratings reveal">
+      <div><span class="pr-label">Fresha</span><span class="pr-val">4.9/5</span></div>
+      <div><span class="pr-label">Facebook</span><span class="pr-val">5/5</span></div>
+      <div><span class="pr-label">ClassPass</span><span class="pr-val">4.9/5</span></div>
     </div>
   </div>
 </section>
