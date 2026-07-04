@@ -105,7 +105,6 @@ p{color:var(--muted);margin:0 0 1em;}
 
 /* ===== HERO ===== */
 #hero{position:relative;padding:150px 0 90px;overflow:hidden;background:var(--bg);}
-#hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 78% 25%, rgba(201,161,90,0.13), transparent 55%);}
 .hero-grid{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
 .hero-monogram{position:absolute;left:-30px;top:40%;font-family:var(--serif);font-size:420px;font-weight:700;color:rgba(201,161,90,0.05);line-height:1;z-index:0;pointer-events:none;user-select:none;}
 .hero-content{position:relative;z-index:1;}
@@ -118,7 +117,7 @@ p{color:var(--muted);margin:0 0 1em;}
 .hero-pills{display:flex;flex-wrap:wrap;align-items:center;gap:10px 0;font-size:13.5px;color:var(--muted);}
 .hero-pills span.hp-item{display:inline-flex;align-items:center;gap:7px;}
 .hero-pills .dot{margin:0 14px;color:var(--gold);}
-.hero-photo-frame{position:relative;border-radius:24px;overflow:hidden;border:1px solid var(--border);box-shadow:0 40px 80px -30px rgba(0,0,0,0.7);}
+.hero-photo-frame { position: relative; border-radius: 24px; overflow: hidden; }
 .hero-photo-frame img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;}
 .hero-float{position:absolute;left:16px;right:16px;bottom:16px;z-index:3;display:flex;gap:12px;flex-wrap:wrap;}
 .hero-card{background:rgba(9,9,10,0.7);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,0.13);border-radius:16px;padding:14px 18px;display:flex;align-items:center;gap:12px;}
@@ -324,7 +323,7 @@ footer{padding:64px 0 32px;}
 
 <!-- ============ HERO ============ -->
 <section id="hero">
-  <span class="hero-monogram" aria-hidden="true">M</span>
+  <span class="hero-monogram" aria-hidden="true">M S</span>
   <div class="wrap hero-grid">
     <div class="hero-content">
       <div class="hero-eyebrow">
