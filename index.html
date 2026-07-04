@@ -63,7 +63,7 @@
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
-body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 img{max-width:100%;display:block;}
 a{color:inherit;}
 .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
@@ -106,7 +106,7 @@ p{color:var(--muted);margin:0 0 1em;}
 /* ===== HERO ===== */
 #hero{position:relative;min-height:100vh;overflow:hidden;background:var(--bg);}
 .hero-photo{position:absolute;top:0;right:0;bottom:0;width:56%;z-index:0;}
-.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 22%;filter:sepia(.22) saturate(1.4) contrast(1.1) brightness(.87);}
+.hero-photo img{width:100%;height:100%;object-fit:cover;object-position:center 38%;}
 .hero-photo::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg, var(--bg) 0%, rgba(10,10,11,0.6) 10%, transparent 30%);}
 .hero-photo::after{content:'';position:absolute;inset:0;background:linear-gradient(0deg, rgba(5,5,6,0.92) 0%, transparent 40%);}
 .hero-monogram{position:absolute;left:-56px;bottom:-140px;font-family:var(--serif);font-size:640px;font-weight:700;color:rgba(201,161,90,0.055);line-height:1;z-index:0;pointer-events:none;user-select:none;}
@@ -327,7 +327,7 @@ footer{padding:64px 0 32px;}
 <!-- ============ HERO ============ -->
 <section id="hero">
   <div class="hero-photo">
-    <img src="assets/hero-barbershop.jpg" alt="Barbers at Milton Salon and Barber Shop grooming clients in Alpharetta, GA" fetchpriority="high">
+    <img src="assets/hero-barbershop.jpg" alt="Illustrated portrait of Milton Salon's master barber in the shop, Alpharetta, GA" fetchpriority="high">
   </div>
   <span class="hero-monogram" aria-hidden="true">M</span>
   <div class="hero-content">
