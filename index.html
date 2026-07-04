@@ -183,6 +183,7 @@ blockquote{font-family:var(--serif);font-size:24px;font-style:italic;color:#fff;
 .gal-grid button img{width:100%;height:100%;object-fit:cover;transition:transform .4s ease;filter:sepia(.28) saturate(1.55) contrast(1.15) brightness(.85) hue-rotate(-6deg);}
 .gal-grid button:hover img{transform:scale(1.07);}
 .gal-grid button.big{grid-column:span 2;grid-row:span 2;}
+.gal-grid button[hidden]{display:none;}
 @media(max-width:800px){.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}.gal-grid button.big{grid-column:span 2;grid-row:span 1;height:100%;}}
 
 /* ===== LIGHTBOX ===== */
@@ -514,14 +515,17 @@ footer{padding:64px 0 32px;}
       <button type="button" data-idx="5"><img src="assets/gal-barber-kid-smile.webp" alt="Barber and a young client smiling together" loading="lazy"></button>
       <button type="button" data-idx="6"><img src="assets/gal-hair-tattoo-progress.webp" alt="Barber carving a hair tattoo design in progress" loading="lazy"></button>
       <button type="button" data-idx="7"><img src="assets/gal-kid-red-fade.webp" alt="Kid's colorful red fade haircut at Milton Salon" loading="lazy"></button>
-      <button type="button" data-idx="8"><img src="assets/gal-womens-cut.webp" alt="Women's haircut in progress at Milton Salon" loading="lazy"></button>
-      <button type="button" data-idx="9"><img src="assets/gal-kid-before-after.webp" alt="Kid's haircut before and after at Milton Salon" loading="lazy"></button>
-      <button type="button" data-idx="10"><img src="assets/gal-pompadour-smile.webp" alt="Client smiling after a pompadour haircut" loading="lazy"></button>
-      <button type="button" data-idx="11"><img src="assets/gal-precision-work.webp" alt="Barber focused on precision fade work" loading="lazy"></button>
-      <button type="button" data-idx="12"><img src="assets/gal-interior-wide.webp" alt="Wide interior view of Milton Salon and Barber Shop" loading="lazy"></button>
-      <button type="button" data-idx="13"><img src="assets/gal-pompadour-nosestrip.webp" alt="Pompadour haircut with a facial treatment at Milton Salon" loading="lazy"></button>
-      <button type="button" data-idx="14"><img src="assets/gal-curly-fade.webp" alt="Curly fade haircut result at Milton Salon" loading="lazy"></button>
-      <button type="button" data-idx="15"><img src="assets/gal-facial-clipper-fade.webp" alt="Facial treatment, clipper cut and fade close-up at Milton Salon" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="8"><img src="assets/gal-womens-cut.webp" alt="Women's haircut in progress at Milton Salon" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="9"><img src="assets/gal-kid-before-after.webp" alt="Kid's haircut before and after at Milton Salon" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="10"><img src="assets/gal-pompadour-smile.webp" alt="Client smiling after a pompadour haircut" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="11"><img src="assets/gal-precision-work.webp" alt="Barber focused on precision fade work" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="12"><img src="assets/gal-interior-wide.webp" alt="Wide interior view of Milton Salon and Barber Shop" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="13"><img src="assets/gal-pompadour-nosestrip.webp" alt="Pompadour haircut with a facial treatment at Milton Salon" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="14"><img src="assets/gal-curly-fade.webp" alt="Curly fade haircut result at Milton Salon" loading="lazy"></button>
+      <button type="button" class="gal-extra" hidden data-idx="15"><img src="assets/gal-facial-clipper-fade.webp" alt="Facial treatment, clipper cut and fade close-up at Milton Salon" loading="lazy"></button>
+    </div>
+    <div style="text-align:center;margin-top:32px;">
+      <button type="button" id="gal-load-more" class="btn btn-outline">Load More Photos</button>
     </div>
   </div>
 </section>
@@ -816,6 +820,18 @@ document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
     var dx = e.changedTouches[0].clientX - touchStartX;
     if(Math.abs(dx) > 40){ dx > 0 ? show(current - 1) : show(current + 1); }
     touchStartX = null;
+  });
+})();
+
+// Gallery load more
+(function(){
+  var loadMoreBtn = document.getElementById('gal-load-more');
+  if(!loadMoreBtn) return;
+  loadMoreBtn.addEventListener('click', function(){
+    document.querySelectorAll('.gal-grid button.gal-extra').forEach(function(btn){
+      btn.hidden = false;
+    });
+    loadMoreBtn.remove();
   });
 })();
 </script>
